@@ -144,12 +144,12 @@ const ReservationPage: React.FC = () => {
             <h2 className="text-xl font-semibold mb-4">Price Summary</h2>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span>${reservationData.room.price} × {totalNights} nights</span>
-                <span>${totalPrice}</span>
+                <span>Rs.{reservationData.room.price} × {totalNights} nights</span>
+                <span>Rs.{totalPrice}</span>
               </div>
               <div className="flex justify-between font-semibold text-lg pt-3 border-t">
                 <span>Total</span>
-                <span>${totalPrice}</span>
+                <span>Rs.{totalPrice}</span>
               </div>
             </div>
             <button
