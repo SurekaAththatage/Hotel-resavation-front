@@ -12,6 +12,7 @@ const RegisterPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+ const [username, setUsername] = useState('');
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +24,8 @@ const RegisterPage: React.FC = () => {
     }
     
     try {
-      await register(name, email, password);
+      await register(name, username, email, password);
+
       navigate('/');
     } catch (err) {
       setError('Registration failed. Please try again.');
@@ -118,7 +120,23 @@ const RegisterPage: React.FC = () => {
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               </div>
             </div>
-            
+             <div>
+  <label htmlFor="username" className="form-label">Username</label>
+  <div className="relative">
+    <input
+      id="username"
+      name="username"
+      type="text"
+      autoComplete="username"
+      required
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      className="form-input pl-10"
+      placeholder="Choose a username"
+    />
+    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+  </div>
+</div>
             <div className="flex items-center">
               <input
                 id="terms"
